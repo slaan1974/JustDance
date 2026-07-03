@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just Dance Review Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+  <div class="overlay"></div>
+  <div id="debugBanner" class="debug-banner">Debug: loading…</div>
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Just Dance • review-ready preview</p>
+      <h1>Just Dance Review Hub</h1>
+      <p class="subtitle">
+        A vibrant landing page inspired by the Just Dance franchise, with a rotating background,
+        a quick overview of the series, and a searchable song catalog to review.
+      </p>
+      <div class="hero-actions">
+        <button id="shuffleBg" class="btn btn-primary">New background</button>
+        <a href="#songs" class="btn btn-secondary">Explore songs</a>
+      </div>
+      <div class="stats-row">
+        <div>
+          <strong>Franchise</strong>
+          <span>Rhythm & dance game series</span>
+        </div>
+        <div>
+          <strong>Backgrounds</strong>
+          <span>Changes on every visit</span>
+        </div>
+        <div>
+          <strong>Catalog</strong>
+          <span>Searchable song list</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="info-grid">
+      <article class="info-card">
+        <p class="section-label">About the series</p>
+        <h2>From Wii-era beginnings to a modern dance service</h2>
+        <p>
+          Just Dance began as a motion-controlled party game and grew into one of Ubisoft’s most
+          recognizable rhythm franchises. The games feature music, choreography, and fun for
+          players of all ages, with a rotating catalog of songs from across decades.
+        </p>
+        <p>
+          This preview uses the public Just Dance wiki overview as a reference point and presents
+          the core experience in a clean, review-friendly layout.
+        </p>
+      </article>
+
+      <aside class="info-card accent">
+        <p class="section-label">Preview notes</p>
+        <ul>
+          <li>Background image rotates automatically on page load</li>
+          <li>Search and filter songs instantly</li>
+          <li>Designed for quick review in the browser</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section id="songs" class="song-section">
+      <div class="section-header">
+        <div>
+          <p class="section-label">Song catalog</p>
+          <h2>Browse the Just Dance song library</h2>
+        </div>
+        <label class="search-box">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Try “happy”, “blinding”, or “funk”" />
+        </label>
+      </div>
+
+      <div class="tag-row" id="tagRow"></div>
+      <div id="songGrid" class="song-grid"></div>
+    </section>
+  </main>
+
+  <!-- Background Music (looped) -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="background_music/jd_loop_music.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musicToggle" class="music-toggle" title="Toggle music">🔇</button>
+
+  <script src="script.js?v=4"></script>
+  <script>
+    // Background music toggle
+    (function() {
+      const audio = document.getElementById('bgMusic');
+      const btn = document.getElementById('musicToggle');
+      let playing = false;
+
+      function logEvent(action) {
+        fetch('/log_event?action=' + encodeURIComponent(action)).catch(() => {});
+      }
+
+      btn.addEventListener('click', function() {
+        if (playing) {
+          audio.pause();
+          btn.textContent = '🔇';
+          btn.title = 'Play music';
+          playing = false;
+          logEvent('music_stopped');
+        } else {
+          audio.play().then(() => {
+            btn.textContent = '🔊';
+            btn.title = 'Mute music';
+            playing = true;
+            logEvent('music_started');
+          }).catch(err => console.warn('Audio play failed:', err));
+        }
+      });
+
+      // Try to autoplay (will work if browser allows it)
+      audio.play().then(() => {
+        btn.textContent = '🔊';
+        playing = true;
+        logEvent('music_autoplay_started');
+      }).catch(() => {
+        // Autoplay blocked — user must click the button
+      });
+    })();
+  </script>
+</body>
+</html>
