@@ -39,3 +39,19 @@ Open `http://localhost:8000` in a browser.
 ## Data Collection
 
 Album art and audio previews were collected using MusicBrainz and Cover Art Archive APIs. The `match_and_trim.py` script matches songs against a local music library, trims 20-second preview clips, and populates `songs.json` with local paths.
+
+## Repository & Sync
+
+| | |
+|---|---|
+| Remote | `https://github.com/slaan1974/JustDance.git` (branch `main`) |
+| Local clone | `C:\Users\slaan\OneDrive\Documents\jd-new` (Windows) |
+| Secondary copy | `~/jd-new` on Raspberry Pi 4 (`slaan1974@192.168.178.18`) |
+
+- **Windows → GitHub:** `git add -A && git commit && git push origin main`
+- **Pi → Windows:** passwordless SSH (ed25519 key installed in `~/.ssh/authorized_keys` on the Pi):
+  ```bash
+  scp -r slaan1974@192.168.178.18:~/jd-new/. /tmp/pi-jd   # or rsync over ssh
+  ```
+- **Pi is not a git repo** — it holds a plain file copy. As of 2026-10-08 all 1044 files were verified byte-identical to GitHub (only `README.md` and `TEST.md` exist solely in git).
+- Line endings: system `core.autocrlf=true` on Windows; the repo stores LF.
