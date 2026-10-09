@@ -138,7 +138,10 @@
     "title": "I Like to Move It",
     "artist": "Reel 2 Real",
     "year": 1993,
-    "preview_url_local": "songs/reel_2_real_i_like_to_move_it.mp3"
+    "preview_url_local": "songs/reel_2_real_i_like_to_move_it.mp3",
+    "image_url": "https://coverartarchive.org/release/0308b102-8835-4248-b372-c7d6354bc651/front-250.jpg",
+    "image_url_local": "album_art/reel_2_real_i_like_to_move_it_a6323d7962.jpg",
+    "album_title": "Het beste uit De Mega Top 50 van het jaar ’94"
   },
   {
     "game": "Just Dance 1",
@@ -202,7 +205,10 @@
     "game": "Just Dance 1",
     "title": "Lump",
     "artist": "The Presidents of the United States of America",
-    "year": 1995
+    "year": 1995,
+    "image_url": "https://coverartarchive.org/release/a77a7d9e-5085-4f64-a670-844ded8c7b05/front-250.jpg",
+    "image_url_local": "album_art/the_presidents_of_the_united_states_of_america_lump_f464c8b4c8.jpg",
+    "album_title": "The World’s Best Ever Beer Songs 3"
   },
   {
     "game": "Just Dance 1",
@@ -352,7 +358,10 @@
     "title": "Cosmic Girl",
     "artist": "Jamiroquai",
     "year": 1996,
-    "preview_url_local": "songs/jamiroquai_cosmic_girl.mp3"
+    "preview_url_local": "songs/jamiroquai_cosmic_girl.mp3",
+    "image_url": "https://coverartarchive.org/release/666dd9a8-91fe-4e73-b92a-fcc5a37f1b0e/front-250.jpg",
+    "image_url_local": "album_art/jamiroquai_cosmic_girl_92cf361cae.jpg",
+    "album_title": "Return to the Playboy Mansion"
   },
   {
     "game": "Just Dance 2",
@@ -388,7 +397,10 @@
     "title": "Girlfriend",
     "artist": "Avril Lavigne",
     "year": 2007,
-    "preview_url_local": "songs/avril_lavigne_girlfriend.mp3"
+    "preview_url_local": "songs/avril_lavigne_girlfriend.mp3",
+    "image_url": "https://coverartarchive.org/release/cd113810-d8ed-4895-854a-71fb6718b6a6/front-250.jpg",
+    "image_url_local": "album_art/avril_lavigne_girlfriend_1b2db48907.jpg",
+    "album_title": "Walmart Soundcheck"
   },
   {
     "game": "Just Dance 2",
@@ -883,7 +895,10 @@
     "title": "You Can't Hurry Love",
     "artist": "The Supremes",
     "year": 1966,
-    "preview_url_local": "songs/the_supremes_you_can_t_hurry_love.mp3"
+    "preview_url_local": "songs/the_supremes_you_can_t_hurry_love.mp3",
+    "image_url": "https://coverartarchive.org/release/6af7f6c3-8db0-4b5b-a49c-b4062e724eec/front-250.jpg",
+    "image_url_local": "album_art/the_supremes_you_can_t_hurry_love_bc056e2b3f.jpg",
+    "album_title": "100 Sixties Classics"
   },
   {
     "game": "Just Dance 3",
@@ -1116,9 +1131,9 @@
     "title": "Da Funk",
     "artist": "Daft Punk",
     "year": 1995,
-    "image_url": "https://coverartarchive.org/release/3992d926-8b5b-4eb1-a8b8-48c13c784d2b/front-250.jpg",
-    "album_title": "Frenétiko",
-    "image_url_local": "album_art/daft_punk_da_funk_ff4f29bfae.jpg",
+    "image_url": "https://coverartarchive.org/release/dec3511f-e086-41b7-b5ec-f47e3763c256/front-250.jpg",
+    "album_title": "Promo Only: Mainstream Radio, April 1998",
+    "image_url_local": "album_art/daft_punk_da_funk_e67bd6e94d.jpg",
     "preview_url_local": "songs/daft_punk_da_funk.mp3"
   },
   {
@@ -1259,7 +1274,10 @@
     "title": "I Was Made for Lovin' You",
     "artist": "KISS",
     "year": 1979,
-    "preview_url_local": "songs/kiss_i_was_made_for_lovin_you.mp3"
+    "preview_url_local": "songs/kiss_i_was_made_for_lovin_you.mp3",
+    "image_url": "https://coverartarchive.org/release/6b417aa2-9b07-415e-9396-d89ec0ba0ff7/front-250.jpg",
+    "image_url_local": "album_art/kiss_i_was_made_for_lovin_you_1612b26273.jpg",
+    "album_title": "Alive III"
   },
   {
     "game": "Just Dance 3",
@@ -1340,7 +1358,10 @@
     "game": "Just Dance 3 (DLC)",
     "title": "Jambo Mambo",
     "artist": "Volker Rosin",
-    "year": 1997
+    "year": 1997,
+    "image_url": "https://coverartarchive.org/release/f15806e1-477e-4d92-95c0-95d3316bef96/front-250.jpg",
+    "image_url_local": "album_art/volker_rosin_jambo_mambo_a75455964b.jpg",
+    "album_title": "Komm, lass uns tanzen"
   },
   {
     "game": "Just Dance 3 (DLC)",
@@ -1429,7 +1450,10 @@
     "game": "Just Dance 4",
     "title": "Can't Take My Eyes Off You",
     "artist": "Frankie Valli",
-    "year": 1982
+    "year": 1982,
+    "image_url": "https://coverartarchive.org/release/5262d189-e6c6-473f-acdb-74381df06001/front-250.jpg",
+    "image_url_local": "album_art/frankie_valli_can_t_take_my_eyes_off_you_03c9d4f50f.jpg",
+    "album_title": "Can’t Take My Eyes Off You"
   },
   {
     "game": "Just Dance 4",
@@ -1739,7 +1763,10 @@
     "game": "Just Dance 4",
     "title": "Tribal Dance",
     "artist": "2 Unlimited",
-    "year": 1993
+    "year": 1993,
+    "image_url": "https://coverartarchive.org/release/c849415b-ffa0-4085-b3a7-e366e14f9f56/front-250.jpg",
+    "image_url_local": "album_art/2_unlimited_tribal_dance_a36c517ca3.jpg",
+    "album_title": "18 Top-Hits International 5/93"
   },
   {
     "game": "Just Dance 4",
@@ -2570,7 +2597,10 @@
     "title": "Bailando",
     "artist": "Enrique Iglesias",
     "year": 1996,
-    "preview_url_local": "songs/enrique_iglesias_bailando.mp3"
+    "preview_url_local": "songs/enrique_iglesias_bailando.mp3",
+    "image_url": "https://coverartarchive.org/release/7ff54cf6-dd79-47a0-a6b4-9e542ac815a3/front-250.jpg",
+    "image_url_local": "album_art/enrique_iglesias_bailando_2f81fdfdf5.jpg",
+    "album_title": "Sex and Love: Bailando Edition"
   },
   {
     "game": "Just Dance 2015",
@@ -2737,7 +2767,10 @@
     "title": "Love Is All",
     "artist": "Roger Glover",
     "year": 1974,
-    "preview_url_local": "songs/roger_glover_love_is_all.mp3"
+    "preview_url_local": "songs/roger_glover_love_is_all.mp3",
+    "image_url": "https://coverartarchive.org/release/3cc12609-e604-462c-af18-12b1716a8203/front-250.jpg",
+    "image_url_local": "album_art/roger_glover_love_is_all_4709e70b11.jpg",
+    "album_title": "Greatest Hits of the ’70’s: The Singles Collection 1970–1979"
   },
   {
     "game": "Just Dance 2015",
@@ -2811,7 +2844,10 @@
     "title": "Papaoutai",
     "artist": "Stromae",
     "year": 2013,
-    "preview_url_local": "songs/stromae_papaoutai.mp3"
+    "preview_url_local": "songs/stromae_papaoutai.mp3",
+    "image_url": "https://coverartarchive.org/release/6d7af2a4-fd4d-4a5f-a343-535d7f8c6b02/front-250.jpg",
+    "image_url_local": "album_art/stromae_papaoutai_1a89610fdd.jpg",
+    "album_title": "Bravo Hits 83"
   },
   {
     "game": "Just Dance 2015",
@@ -2837,7 +2873,10 @@
     "game": "Just Dance 2015",
     "title": "Speedy Gonzales",
     "artist": "Pat Boone",
-    "year": 1962
+    "year": 1962,
+    "image_url": "https://coverartarchive.org/release/976765db-6ed6-4979-9fda-5dae26deb191/front-250.jpg",
+    "image_url_local": "album_art/pat_boone_speedy_gonzales_a8acc0b552.jpg",
+    "album_title": "Das goldene Schlager-Archiv: Die Hits des Jahres 1962"
   },
   {
     "game": "Just Dance 2015",
@@ -2873,7 +2912,10 @@
     "title": "Us Under the Sunshine",
     "artist": "Wanting Qu",
     "year": 2013,
-    "preview_url_local": "songs/wanting_qu_us_under_the_sunshine.mp3"
+    "preview_url_local": "songs/wanting_qu_us_under_the_sunshine.mp3",
+    "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/25/4b/98/254b9855-bee9-b42f-d7a6-c892ab4226e1/067003099158.png/600x600bb.jpg",
+    "image_url_local": "album_art/wanting_qu_us_under_the_sunshine_22f72225c2.jpg",
+    "album_title": "Say the Words"
   },
   {
     "game": "Just Dance 2015",
@@ -3221,7 +3263,10 @@
     "title": "These Boots Are Made for Walkin'",
     "artist": "Nancy Sinatra",
     "year": 1966,
-    "preview_url_local": "songs/nancy_sinatra_these_boots_are_made_for_walkin.mp3"
+    "preview_url_local": "songs/nancy_sinatra_these_boots_are_made_for_walkin.mp3",
+    "image_url": "https://coverartarchive.org/release/e3a9bbf7-fc73-4f4d-908b-aedddca1567c/front-250.jpg",
+    "image_url_local": "album_art/nancy_sinatra_these_boots_are_made_for_walkin_82059a27ca.jpg",
+    "album_title": "The Sixties"
   },
   {
     "game": "Just Dance 2016",
@@ -3516,7 +3561,10 @@
     "title": "I Love Rock 'n Roll",
     "artist": "Joan Jett & the Blackhearts",
     "year": 1981,
-    "preview_url_local": "songs/joan_jett_the_blackhearts_i_love_rock_n_roll.mp3"
+    "preview_url_local": "songs/joan_jett_the_blackhearts_i_love_rock_n_roll.mp3",
+    "image_url": "https://coverartarchive.org/release/7058eaff-473d-426d-baee-b6a7f0d37b64/front-250.jpg",
+    "image_url_local": "album_art/joan_jett_the_blackhearts_i_love_rock_n_roll_be204b90b6.jpg",
+    "album_title": "The Story of Musikladen, No. 3: 1981–1984"
   },
   {
     "game": "Just Dance 2017",
@@ -3732,7 +3780,10 @@
     "game": "Just Dance 2017 (DLC)",
     "title": "Je Sais Pas Danse",
     "artist": "Natoo",
-    "year": 2016
+    "year": 2016,
+    "image_url": "https://cdn-images.dzcdn.net/images/cover/7bca2ef487fd8439a042295746ef3d2c/1000x1000-000000-80-0-0.jpg",
+    "image_url_local": "album_art/natoo_je_sais_pas_danse_773a268a72.jpg",
+    "album_title": "Je sais pas danser"
   },
   {
     "game": "Just Dance 2017 (DLC)",
@@ -4152,7 +4203,10 @@
     "title": "The Lion Sleeps Tonight",
     "artist": "The Tokens",
     "year": 1961,
-    "preview_url_local": "songs/the_tokens_the_lion_sleeps_tonight.mp3"
+    "preview_url_local": "songs/the_tokens_the_lion_sleeps_tonight.mp3",
+    "image_url": "https://coverartarchive.org/release/d162140e-aeed-4572-9658-6a0f914adadf/front-250.jpg",
+    "image_url_local": "album_art/the_tokens_the_lion_sleeps_tonight_198854f3c4.jpg",
+    "album_title": "Mega Jukebox Top 100"
   },
   {
     "game": "Just Dance 2018 (KIDS MODE)",
@@ -4354,7 +4408,10 @@
     "title": "I Feel It Coming",
     "artist": "The Weeknd",
     "year": 2016,
-    "preview_url_local": "songs/the_weeknd_i_feel_it_coming.mp3"
+    "preview_url_local": "songs/the_weeknd_i_feel_it_coming.mp3",
+    "image_url": "https://coverartarchive.org/release/e8243fc3-d743-4e77-979d-b037e2e4993b/front-250.jpg",
+    "image_url_local": "album_art/the_weeknd_i_feel_it_coming_6542977b6a.jpg",
+    "album_title": "NRJ Music Awards 2017"
   },
   {
     "game": "Just Dance 2019",
@@ -4601,7 +4658,10 @@
     "game": "Just Dance 2019 (DLC)",
     "title": "Hala Bel Khamis",
     "artist": "Maan Barghouth",
-    "year": 2018
+    "year": 2018,
+    "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/88/f8/66/88f866c8-c2c8-b785-b88a-fee6c39bc984/655360831476_cover.jpg/600x600bb.jpg",
+    "image_url_local": "album_art/maan_barghouth_hala_bel_khamis_4567cd37e1.jpg",
+    "album_title": "Hala Bel Khamis - Single"
   },
   {
     "game": "Just Dance 2019 (DLC)",
@@ -4806,7 +4866,10 @@
     "game": "Just Dance 2020",
     "title": "Get Busy",
     "artist": "KOYOTIE",
-    "year": 2019
+    "year": 2019,
+    "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/9a/48/6b/9a486bc4-a174-0823-bd2c-ea197d5a5caa/192641238895_Cover.jpg/600x600bb.jpg",
+    "image_url_local": "album_art/koyotie_get_busy_79da3fa6fa.jpg",
+    "album_title": "Land of the Living - EP"
   },
   {
     "game": "Just Dance 2020",
@@ -5294,7 +5357,10 @@
     "game": "Just Dance 2021",
     "title": "Samba de Janeiro",
     "artist": "Bellini",
-    "year": 1997
+    "year": 1997,
+    "image_url": "https://coverartarchive.org/release/330e156f-1b53-49d9-839f-184f7e6ce5b0/front-250.jpg",
+    "image_url_local": "album_art/bellini_samba_de_janeiro_e3330c964f.jpg",
+    "album_title": "The Music Fashion 98"
   },
   {
     "game": "Just Dance 2021",
@@ -5310,7 +5376,10 @@
     "title": "Señorita",
     "artist": "Shawn Mendes",
     "year": 2019,
-    "preview_url_local": "songs/shawn_mendes_señorita.mp3"
+    "preview_url_local": "songs/shawn_mendes_señorita.mp3",
+    "image_url": "https://coverartarchive.org/release/1eba16d3-3504-410c-962e-4a2f75c4dc95/front-250.jpg",
+    "image_url_local": "album_art/shawn_mendes_se_orita_0e0532079d.jpg",
+    "album_title": "Relax & Chill"
   },
   {
     "game": "Just Dance 2021",
@@ -5420,7 +5489,10 @@
     "title": "Baianá",
     "artist": "Bakermat",
     "year": 2019,
-    "preview_url_local": "songs/bakermat_baianá.mp3"
+    "preview_url_local": "songs/bakermat_baianá.mp3",
+    "image_url": "https://coverartarchive.org/release/3c7dbef9-12cd-47b5-b644-a66953d527e3/front-250.jpg",
+    "image_url_local": "album_art/bakermat_baian_261976e08c.jpg",
+    "album_title": "Club Sounds: The Ultimate Club Dance Collection, Vol. 101"
   },
   {
     "game": "Just Dance 2022",
@@ -5562,7 +5634,10 @@
     "game": "Just Dance 2022",
     "title": "Happier Than Ever",
     "artist": "Billie Eilish",
-    "year": 2021
+    "year": 2021,
+    "image_url": "https://coverartarchive.org/release/51f64cb0-dd84-411e-8a13-2c7f1d26afe8/front-250.jpg",
+    "image_url_local": "album_art/billie_eilish_happier_than_ever_58d1663938.jpg",
+    "album_title": "Happier Than Ever"
   },
   {
     "game": "Just Dance 2022",
@@ -6310,7 +6385,10 @@
     "title": "Chaise Longue",
     "artist": "Wet Leg",
     "year": 2021,
-    "preview_url_local": "songs/wet_leg_chaise_longue.mp3"
+    "preview_url_local": "songs/wet_leg_chaise_longue.mp3",
+    "image_url": "https://coverartarchive.org/release/ddad1863-cdbd-4468-ab91-9e9eb7bb1a77/front-250.jpg",
+    "image_url_local": "album_art/wet_leg_chaise_longue_833037b407.jpg",
+    "album_title": "Wet Leg"
   },
   {
     "game": "Just Dance 2024",
@@ -6334,7 +6412,10 @@
     "game": "Just Dance 2024",
     "title": "DESPECHÁ",
     "artist": "ROSALÍA",
-    "year": 2022
+    "year": 2022,
+    "image_url": "https://r2.theaudiodb.com/images/media/album/thumb/yej2tr1757098868.jpg",
+    "image_url_local": "album_art/rosal_a_despech_d6bc48935c.jpg",
+    "album_title": "DESPECHÁ"
   },
   {
     "game": "Just Dance 2024",
@@ -6718,7 +6799,10 @@
     "game": "Just Dance 2025",
     "title": "In Your Eyes (Remix)",
     "artist": "The Weeknd ft. Doja Cat",
-    "year": 2020
+    "year": 2020,
+    "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/26/29/7e/26297e27-73d6-a22a-4f7f-41b67a829d57/20UMGIM41901.rgb.jpg/600x600bb.jpg",
+    "image_url_local": "album_art/the_weeknd_ft_doja_cat_in_your_eyes_remix_ddfbfb1d8c.jpg",
+    "album_title": "In Your Eyes (Remix) [feat. Doja Cat] - Single"
   },
   {
     "game": "Just Dance 2025",
@@ -6733,7 +6817,10 @@
     "game": "Just Dance 2025",
     "title": "LUNCH",
     "artist": "Billie Eilish",
-    "year": 2024
+    "year": 2024,
+    "image_url": "https://coverartarchive.org/release/dbae017b-3a74-41ad-85e6-b43bbbf181ab/front-250.jpg",
+    "image_url_local": "album_art/billie_eilish_lunch_8b5af17fce.jpg",
+    "album_title": "Now That’s What I Call Music! 118"
   },
   {
     "game": "Just Dance 2025",
@@ -6851,7 +6938,10 @@
     "game": "Just Dance 2025",
     "title": "Something I Can Feel",
     "artist": "Mandy Harvey",
-    "year": 2022
+    "year": 2022,
+    "image_url": "https://coverartarchive.org/release/5f982512-73a0-4b7e-ad09-0e1a0d3c69c6/front-250.jpg",
+    "image_url_local": "album_art/mandy_harvey_something_i_can_feel_192b04e241.jpg",
+    "album_title": "Smile"
   },
   {
     "game": "Just Dance 2025",
@@ -7037,7 +7127,10 @@
     "game": "Just Dance 2026",
     "title": "Big Bad Frog",
     "artist": "Austin & Colin",
-    "year": 2024
+    "year": 2024,
+    "image_url": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7d/fd/5c/7dfd5c6a-f21b-9e4b-ff22-471922c9bd0d/4099964134742.jpg/600x600bb.jpg",
+    "image_url_local": "album_art/austin_colin_big_bad_frog_265efd0095.jpg",
+    "album_title": "Big Bad Frog - Single"
   },
   {
     "game": "Just Dance 2026",
@@ -7305,7 +7398,10 @@
     "game": "Just Dance 2026",
     "title": "Spin Your Love",
     "artist": "Kevin J Simon",
-    "year": 2025
+    "year": 2025,
+    "image_url": "https://coverartarchive.org/release/2e14ab73-8390-4938-adb6-243c161e60f6/front-250.jpg",
+    "image_url_local": "album_art/kevin_j_simon_spin_your_love_d7808b143f.jpg",
+    "album_title": "Just Dance 2026: Original Creations and Covers (Original Soundtrack)"
   },
   {
     "game": "Just Dance 2026",

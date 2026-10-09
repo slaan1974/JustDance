@@ -51,7 +51,7 @@ python3 -m json.tool songs.json > /dev/null && echo "OK" || echo "FAIL"
 # Count entries
 python3 -c "import json; print(len(json.load(open('songs.json'))))"
 
-# Check all local image files exist
+# Check all local image files exist (expected: 0)
 python3 -c "
 import json, os
 songs = json.load(open('songs.json'))
@@ -82,12 +82,16 @@ Run each script from the project root. They scrape MusicBrainz / Cover Art Archi
 | `python3 get_album_art_parallel.py` | Multi-threaded scraping |
 | `python3 get_album_art_final.py` | Final pass to fill remaining gaps |
 | `python3 get_album_art_spotify.py` | Spotify-backed art lookup |
+| `python3 get_album_art_missing.py` | Fills any song still missing local art (Cover Art Archive → MusicBrainz → TheAudioDB → iTunes → Deezer) |
 
 ```bash
 # Dry-run check that each script imports cleanly
 for f in get_album_art*.py; do
   python3 -c "import ast; ast.parse(open('$f').read()); print(f'$f: syntax OK')"
 done
+
+# Re-check coverage (expected: 0 songs with missing album art)
+python3 get_album_art_missing.py   # exits 0 when coverage is complete
 ```
 
 ## 5. Preview Trim Script
