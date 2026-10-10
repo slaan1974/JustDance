@@ -12,7 +12,7 @@ PORT=8006 python3 server.py  # or set the PORT env var
 
 Open `http://localhost:8006` in a browser.
 
-> **Port allocation on the host:** `pong` uses `8000` & `8008`, qBittorrent uses `8080`, so **jd-new uses `8006`**.
+> **Port allocation on the host:** `pong` uses `8008`, qBittorrent uses `8080`, so **jd-new uses `8006`**. On the Pi the site runs as a systemd service (`jd-new-site.service`), so it starts automatically on boot.
 
 ## Features
 
@@ -95,7 +95,7 @@ The suite validates `songs.json` (valid list, 793 entries, required fields, `era
 | Remote | `https://github.com/slaan1974/JustDance.git` (branch `main`) |
 | Local clone | `C:\Users\slaan\OneDrive\Documents\jd-new` (Windows) |
 | Secondary copy | `~/jd-new` on Raspberry Pi 4 (`slaan1974@192.168.178.18`) |
-| Served port | `8006` (`pong` uses 8000 & 8008, qBittorrent uses 8080) |
+| Served port | `8006` (`pong` uses 8008, qBittorrent uses 8080) |
 
 - **Windows → GitHub:** `git add -A && git commit && git push origin main`
 - **Windows → Pi (mirror):** `rsync` via WSL. Exclude `.git` (not a repo on the Pi), `log.txt` (keep the Pi's runtime log), and caches/backups; `--delete` syncs removals. Use `--exclude=PATTERN` (no space) so bash won't glob-expand the pattern into extra args:
@@ -108,6 +108,29 @@ The suite validates `songs.json` (valid list, 793 entries, required fields, `era
   ```bash
   scp -r slaan1974@192.168.178.18:~/jd-new/. /tmp/pi-jd   # or rsync over ssh
   ```
-- **Serve from the Pi:** `cd ~/jd-new && python3 server.py` → `http://192.168.178.18:8006`
+- **Serve from the Pi (auto-start):** the site runs under systemd as `jd-new-site.service`, so it starts on boot and restarts on crash. The Pi's `8006` port is thereby always on:
+  ```systemd
+  # /etc/systemd/system/jd-new-site.service
+  [Unit]
+  Description=JD-New website (python server.py on port 8006)
+  After=network.target
+
+  [Service]
+  Type=simple
+  User=slaan1974
+  WorkingDirectory=/home/slaan1974/jd-new
+  ExecStart=/usr/bin/python3 /home/slaan1974/jd-new/server.py
+  Restart=always
+  RestartSec=2
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
+  ```bash
+  sudo systemctl daemon-reload && sudo systemctl enable --now jd-new-site.service
+  systemctl status jd-new-site.service        # active (running) -> http://192.168.178.18:8006
+  ```
+  After mirroring new code to the Pi, apply it with one restart: `sudo systemctl restart jd-new-site.service`.
+- **Serve from the Pi (manual, no service):** `cd ~/jd-new && python3 server.py`
 - **Pi is not a git repo** — it holds a plain file copy (mirrored from the Windows clone).
 - Line endings: system `core.autocrlf=true` on Windows; the repo stores LF.
