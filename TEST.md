@@ -7,26 +7,30 @@ Manual test checklist for the Just Dance Review Hub. An automated suite lives in
 ## 1. HTTP Server
 
 ```bash
-# Start default port
+# Start default port (8006)
 python3 server.py
 
 # Start custom port
 python3 server.py 9090
+
+# Or via env var
+PORT=8006 python3 server.py
 ```
 
 | Test | Expected |
 |------|----------|
-| Server starts without errors | Prints "Server started on port 8000" |
+| Server starts without errors | Prints "Server started on port 8006" |
 | `log.txt` created in project root | File exists and is writable |
-| Server responds on `http://localhost:8000` | 200, serves `index.html` |
+| Server responds on `http://localhost:8006` | 200, serves `index.html` |
 | Custom port works | `python3 server.py 9090` → `localhost:9090` |
-| `/log_event` endpoint | `curl "http://localhost:8000/log_event?action=test"` → 204 No Content |
+| Port env var works | `PORT=9000 python3 server.py` → `localhost:9000` |
+| `/log_event` endpoint | `curl "http://localhost:8006/log_event?action=test"` → 204 No Content |
 | Log captures events | Check `log.txt` for `USER_EVENT` entries |
 | Ctrl+C stops server | Prints "Server stopped" and exits cleanly |
 
 ## 2. Front-end
 
-Open `http://localhost:8000` in a browser.
+Open `http://localhost:8006` in a browser.
 
 | Test | Expected |
 |------|----------|

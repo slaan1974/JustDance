@@ -2,8 +2,10 @@
 """
 Custom HTTP server that logs all access events to a log file.
 Usage: python3 server.py [port]
-Default port: 8000
+Default port: 8006 (override with the PORT env var or a CLI argument)
 Log file: log.txt (created in the same directory)
+
+Port allocation on the host: 8000 & 8008 = pong, 8080 = qBittorrent, 8006 = jd-new.
 
 Log retention policy:
   - Maximum file size: 10 MB (FIFO — oldest entries rotate out first)
@@ -23,6 +25,7 @@ LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "log.txt")
 MAX_BYTES = 10 * 1024 * 1024    # 10 MB
 BACKUP_COUNT = 2                # Keep up to 2 rotated backups (FIFO)
 RETENTION_DAYS = 14
+DEFAULT_PORT = 8006
 
 
 def prune_old_entries(log_path, max_age_days):
@@ -126,7 +129,7 @@ class LoggingHTTPRequestHandler(SimpleHTTPRequestHandler):
 
 
 
-def run(port=8000):
+def run(port=DEFAULT_PORT):
     print(f"Log file path: {LOG_FILE}")
     print(f"Log directory: {os.path.dirname(LOG_FILE)}")
     print(f"Directory exists: {os.path.exists(os.path.dirname(LOG_FILE))}")
@@ -180,5 +183,5 @@ def run(port=8000):
 
 
 if __name__ == "__main__":
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8000
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("PORT", DEFAULT_PORT))
     run(port)

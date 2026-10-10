@@ -5,10 +5,14 @@ A review-ready preview hub for the Just Dance franchise. Browse a searchable cat
 ## Quick Start
 
 ```bash
-python3 server.py [port]   # default port: 8000
+python3 server.py            # default port: 8006
+python3 server.py 9000       # or pass a port explicitly
+PORT=8006 python3 server.py  # or set the PORT env var
 ```
 
-Open `http://localhost:8000` in a browser.
+Open `http://localhost:8006` in a browser.
+
+> **Port allocation on the host:** `pong` uses `8000` & `8008`, qBittorrent uses `8080`, so **jd-new uses `8006`**.
 
 ## Features
 
@@ -91,11 +95,19 @@ The suite validates `songs.json` (valid list, 793 entries, required fields, `era
 | Remote | `https://github.com/slaan1974/JustDance.git` (branch `main`) |
 | Local clone | `C:\Users\slaan\OneDrive\Documents\jd-new` (Windows) |
 | Secondary copy | `~/jd-new` on Raspberry Pi 4 (`slaan1974@192.168.178.18`) |
+| Served port | `8006` (`pong` uses 8000 & 8008, qBittorrent uses 8080) |
 
 - **Windows → GitHub:** `git add -A && git commit && git push origin main`
+- **Windows → Pi (mirror):** `rsync` via WSL (excludes `.git`, `log.txt`, logs/backups):
+  ```bash
+  wsl -- bash -lc 'rsync -av --delete --exclude ".git" --exclude "log.txt" \
+    --exclude "__pycache__" --exclude "*.bak" --exclude "*.log" \
+    /mnt/c/Users/slaan/OneDrive/Documents/jd-new/ slaan1974@192.168.178.18:~/jd-new/'
+  ```
 - **Pi → Windows:** passwordless SSH (ed25519 key installed in `~/.ssh/authorized_keys` on the Pi):
   ```bash
   scp -r slaan1974@192.168.178.18:~/jd-new/. /tmp/pi-jd   # or rsync over ssh
   ```
-- **Pi is not a git repo** — it holds a plain file copy. As of 2026-10-08 all 1044 files were verified byte-identical to GitHub (only `README.md` and `TEST.md` exist solely in git).
+- **Serve from the Pi:** `cd ~/jd-new && python3 server.py` → `http://192.168.178.18:8006`
+- **Pi is not a git repo** — it holds a plain file copy (mirrored from the Windows clone).
 - Line endings: system `core.autocrlf=true` on Windows; the repo stores LF.
