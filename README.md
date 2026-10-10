@@ -98,10 +98,10 @@ The suite validates `songs.json` (valid list, 793 entries, required fields, `era
 | Served port | `8006` (`pong` uses 8000 & 8008, qBittorrent uses 8080) |
 
 - **Windows → GitHub:** `git add -A && git commit && git push origin main`
-- **Windows → Pi (mirror):** `rsync` via WSL (excludes `.git`, `log.txt`, logs/backups):
+- **Windows → Pi (mirror):** `rsync` via WSL. Exclude `.git` (not a repo on the Pi), `log.txt` (keep the Pi's runtime log), and caches/backups; `--delete` syncs removals. Use `--exclude=PATTERN` (no space) so bash won't glob-expand the pattern into extra args:
   ```bash
-  wsl -- bash -lc 'rsync -av --delete --exclude ".git" --exclude "log.txt" \
-    --exclude "__pycache__" --exclude "*.bak" --exclude "*.log" \
+  wsl -- bash -lc 'rsync -av --delete --exclude=.git --exclude=log.txt \
+    --exclude=__pycache__ --exclude=*.pyc --exclude=*.log --exclude=*.bak \
     /mnt/c/Users/slaan/OneDrive/Documents/jd-new/ slaan1974@192.168.178.18:~/jd-new/'
   ```
 - **Pi → Windows:** passwordless SSH (ed25519 key installed in `~/.ssh/authorized_keys` on the Pi):
