@@ -1,6 +1,6 @@
 # Testing Guide
 
-Manual test checklist for the Just Dance Review Hub.
+Manual test checklist for the Just Dance Review Hub. An automated suite lives in `tests/test_site.py` (see section 6).
 
 ---
 
@@ -36,7 +36,7 @@ Open `http://localhost:8000` in a browser.
 | "New background" button | Cycles to a different Unsplash image |
 | Song grid renders | Cards with title, artist, album art, and metadata appear |
 | Search box | Type "blinding" — only matching songs shown |
-| Era tags | Click "Classic pop" — grid filters to that era; click "All" resets |
+| Era tags | Click "2010s" — grid filters to that decade; click "All" resets |
 | Album art fallback | Disconnect network — local `album_art/` images load instead |
 | Audio preview | Hover a song card with preview, click ▶ — audio plays; click ⏹ — stops |
 | Background music toggle | Click 🔇 bottom-right — music plays (🔊); click again — stops (🔇) |
@@ -80,21 +80,17 @@ python3 -c "import json; d=json.load(open('album_art_mapping.json')); print(f'{l
 
 ## 4. Data Collection Scripts
 
-Run each script from the project root. They scrape MusicBrainz / Cover Art Archive for album art and populate or update `songs.json`.
+Run each script from the project root.
 
 | Script | Purpose |
 |--------|---------|
-| `python3 get_album_art.py` | Basic MusicBrainz + Cover Art Archive scrape |
-| `python3 get_album_art_enhanced.py` | Enhanced version with retries |
-| `python3 get_album_art_parallel.py` | Multi-threaded scraping |
-| `python3 get_album_art_final.py` | Final pass to fill remaining gaps |
-| `python3 get_album_art_spotify.py` | Spotify-backed art lookup |
 | `python3 get_album_art_missing.py` | Fills any song still missing local art (Cover Art Archive → MusicBrainz → TheAudioDB → iTunes → Deezer) |
 | `python3 get_previews_missing.py` | Fills any song still missing an audio preview (Deezer → iTunes); supports `--limit N` and `--dry-run` |
+| `python3 enrich_songs.py` | Populates the `era` field (musical decade) from each song's `year` |
 
 ```bash
-# Dry-run check that each script imports cleanly
-for f in get_album_art*.py; do
+# Check that each script parses cleanly
+for f in get_album_art_missing.py get_previews_missing.py enrich_songs.py; do
   python3 -c "import ast; ast.parse(open('$f').read()); print(f'$f: syntax OK')"
 done
 
@@ -116,10 +112,19 @@ python3 get_previews_missing.py             # download + update songs.json
 ls songs/ | wc -l    # unique preview files (fewer than song count when tracks repeat)
 ```
 
-## 6. Suggested Tooling
+## 6. Automated Tests
+
+```bash
+# Run the whole suite from the project root (standard library only)
+python3 -m unittest discover -s tests -v    # or: python3 tests/test_site.py
+```
+
+Covers `songs.json` (valid list, 793 entries, required fields, `era` present, all album-art/preview files exist) and `server.py` (index, `/songs.json`, static assets, `/log_event` → 204).
+
+## 7. Suggested Tooling
 
 - **`curl`** — Test server endpoints and response codes
 - **Browser DevTools** (F12) — Console for JS errors, Network tab for 404s, Sources for breakpoints
 - **`python3 -m json.tool`** — Validate JSON files
+- **`unittest`** — The built-in suite in `tests/`
 - **Lighthouse / PageSpeed** — Performance and accessibility audit
-- **`pytest`** (optional) — If scripts grow complex, wrap server and data validation in automated tests

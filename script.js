@@ -61,7 +61,7 @@ const fallbackSongs = [
 
 // Remote image load timeout (milliseconds). If a remote image doesn't finish
 // loading within this time, the code falls back to the local `image_url_local`.
-const REMOTE_IMAGE_TIMEOUT_MS = 10;
+const REMOTE_IMAGE_TIMEOUT_MS = 4000;
 
 let songs = [];
 const songGrid = document.getElementById("songGrid");
@@ -119,6 +119,12 @@ function applyBackground() {
   document.body.style.backgroundImage = `linear-gradient(135deg, rgba(20, 20, 48, 0.58), rgba(28, 20, 46, 0.64)), url(${image})`;
 }
 
+function eraFromYear(year) {
+  const y = parseInt(year, 10);
+  if (Number.isNaN(y)) return "Other";
+  return y < 1960 ? "1950s & earlier" : `${Math.floor(y / 10) * 10}s`;
+}
+
 function normalizeSongs(data) {
   if (!Array.isArray(data)) {
     return [];
@@ -127,7 +133,7 @@ function normalizeSongs(data) {
   return data.map(song => ({
     title: song.title || "Untitled song",
     artist: song.artist || "Unknown artist",
-    era: song.era || "Other",
+    era: song.era || eraFromYear(song.year),
     mood: song.mood || "Unknown",
     album_title: song.album_title || null,
     image_url: song.image_url || null,
@@ -174,7 +180,7 @@ function loadImageWithTimeout(url, timeout) {
 }
 
 function renderTags() {
-  const eras = [...new Set(songs.map(song => song.era))];
+  const eras = [...new Set(songs.map(song => song.era))].sort();
   tagRow.innerHTML = "";
 
   ["All", ...eras].forEach(era => {

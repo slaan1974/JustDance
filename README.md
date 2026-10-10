@@ -13,11 +13,13 @@ Open `http://localhost:8000` in a browser.
 ## Features
 
 - **Song catalog** — Search and filter a JSON-backed song database by title, artist, game, or year
+- **Era filter** — Tag row filters by musical decade (1950s & earlier → 2020s), derived from each song's year
 - **Album art** — Full coverage: 793/793 songs have art, with 762 locally cached fallbacks in `album_art/`
 - **Audio previews** — 775/793 songs have a 30s preview (Deezer/iTunes sourced, plus 20s local-library trims) with play/pause on each song card
 - **Background music** — Looping background track with toggle button
 - **Rotating hero background** — Random Unsplash background on every page load
-- **Request logging** — Built-in HTTP server logs all requests to `log.txt` with 10 MB rotation and 14-day retention
+- **Request logging** — Built-in HTTP server logs all requests to `log.txt` (gitignored) with 10 MB rotation and 14-day retention
+- **Tests** — `unittest` suite covering the data file and HTTP server (`python -m unittest discover -s tests`)
 
 ## Project Structure
 
@@ -32,11 +34,12 @@ Open `http://localhost:8000` in a browser.
 | `album_art/` | Local album art fallback images (762 files) |
 | `album_art_mapping.json` | ~4550-entry mapping for album art scraping |
 | `background_music/` | Looping background audio track |
-| `get_album_art*.py` | Scrapers for MusicBrainz/Cover Art Archive/Spotify album art |
 | `get_album_art_missing.py` | Fills gaps in album art (Cover Art Archive → MusicBrainz → TheAudioDB → iTunes → Deezer) |
 | `get_previews_missing.py` | Fills gaps in audio previews (Deezer → iTunes) |
+| `enrich_songs.py` | Populates the `era` field (musical decade) from each song's year |
 | `match_and_trim.py` | Matches songs against local Music library and trims 20s previews |
-| `log.txt` | Auto-rotating access log (10 MB max, 14-day retention) |
+| `tests/test_site.py` | `unittest` suite for songs.json and the HTTP server |
+| `log.txt` | Auto-rotating access log (gitignored; 10 MB max, 14-day retention) |
 
 ## Data Collection
 
@@ -64,6 +67,22 @@ python get_previews_missing.py            # fill all missing previews
 python get_previews_missing.py --limit 5  # process only the first 5
 python get_previews_missing.py --dry-run  # search + report, do not download
 ```
+
+## Era Metadata
+
+Every song carries an `era` field derived from its release `year` by `enrich_songs.py`: `1950s & earlier`, then `1960s` … `2020s`. The tag row on the site filters on this field. The script is idempotent and only writes `era` (leaves all other fields alone).
+
+```bash
+python enrich_songs.py    # recompute era for every song
+```
+
+## Tests
+
+```bash
+python -m unittest discover -s tests -v   # or: python tests/test_site.py
+```
+
+The suite validates `songs.json` (valid list, 793 entries, required fields, `era` present, and that every referenced album-art/preview file exists) and exercises `server.py` end to end (index, JSON, static assets, and `/log_event` → 204). Standard library only.
 
 ## Repository & Sync
 
