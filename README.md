@@ -14,7 +14,7 @@ Open `http://localhost:8000` in a browser.
 
 - **Song catalog** — Search and filter a JSON-backed song database by title, artist, game, or year
 - **Album art** — Full coverage: 793/793 songs have art, with 762 locally cached fallbacks in `album_art/`
-- **Audio previews** — ~310 trimmed 20s MP3 previews with play/pause on each song card
+- **Audio previews** — 775/793 songs have a 30s preview (Deezer/iTunes sourced, plus 20s local-library trims) with play/pause on each song card
 - **Background music** — Looping background track with toggle button
 - **Rotating hero background** — Random Unsplash background on every page load
 - **Request logging** — Built-in HTTP server logs all requests to `log.txt` with 10 MB rotation and 14-day retention
@@ -28,12 +28,13 @@ Open `http://localhost:8000` in a browser.
 | `script.js` | Client-side app: song loading, filtering, audio previews |
 | `styles.css` | Dark-themed responsive styles |
 | `songs.json` | Song catalog (793 entries across Just Dance titles) |
-| `songs/` | Local MP3 preview clips (~310 files) |
+| `songs/` | Local MP3/M4A preview clips (772 files) |
 | `album_art/` | Local album art fallback images (762 files) |
 | `album_art_mapping.json` | ~4550-entry mapping for album art scraping |
 | `background_music/` | Looping background audio track |
 | `get_album_art*.py` | Scrapers for MusicBrainz/Cover Art Archive/Spotify album art |
 | `get_album_art_missing.py` | Fills gaps in album art (Cover Art Archive → MusicBrainz → TheAudioDB → iTunes → Deezer) |
+| `get_previews_missing.py` | Fills gaps in audio previews (Deezer → iTunes) |
 | `match_and_trim.py` | Matches songs against local Music library and trims 20s previews |
 | `log.txt` | Auto-rotating access log (10 MB max, 14-day retention) |
 
@@ -48,6 +49,21 @@ Album art is now at 100% coverage (793/793 songs). The last 49 gaps were closed 
 3. **TheAudioDB** — track search → album thumbnail
 4. **iTunes Search** — best match for modern singles
 5. **Deezer Search** — regional/independent tracks
+
+## Audio Previews
+
+Previews are at 775/793 coverage. The 313 originals were trimmed to 20s from a local Music library by `match_and_trim.py` (Pi only). The remaining gaps were filled by `get_previews_missing.py`, which tries:
+
+1. **Deezer Search** — 30s MP3 preview (saved as `.mp3`)
+2. **iTunes Search** — 30s M4A preview (saved as `.m4a`)
+
+Both play natively in browsers, so no ffmpeg/trim step is needed. Match logic normalizes cover artists (`Artist, (Cover Artist)` → `Artist`), drops bracketed qualifiers, and tolerates stylised spellings (`Ke$ha` ↔ `Kesha`). The 18 songs still without a preview are Just Dance original compositions or censored/regional titles that have no commercial release.
+
+```bash
+python get_previews_missing.py            # fill all missing previews
+python get_previews_missing.py --limit 5  # process only the first 5
+python get_previews_missing.py --dry-run  # search + report, do not download
+```
 
 ## Repository & Sync
 

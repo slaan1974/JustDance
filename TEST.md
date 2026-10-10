@@ -67,6 +67,13 @@ missing = [s for s in songs if s.get('preview_url_local') and not os.path.isfile
 print(f'{len(missing)} songs with missing previews')
 "
 
+# Preview coverage (expected: 775/793 with a preview, 0 broken refs)
+python3 -c "
+import json
+songs = json.load(open('songs.json'))
+print(f\"{sum(1 for s in songs if s.get('preview_url_local'))}/{len(songs)} songs have previews\")
+"
+
 # Album art mapping size
 python3 -c "import json; d=json.load(open('album_art_mapping.json')); print(f'{len(d)} mappings')"
 ```
@@ -83,6 +90,7 @@ Run each script from the project root. They scrape MusicBrainz / Cover Art Archi
 | `python3 get_album_art_final.py` | Final pass to fill remaining gaps |
 | `python3 get_album_art_spotify.py` | Spotify-backed art lookup |
 | `python3 get_album_art_missing.py` | Fills any song still missing local art (Cover Art Archive → MusicBrainz → TheAudioDB → iTunes → Deezer) |
+| `python3 get_previews_missing.py` | Fills any song still missing an audio preview (Deezer → iTunes); supports `--limit N` and `--dry-run` |
 
 ```bash
 # Dry-run check that each script imports cleanly
@@ -94,14 +102,18 @@ done
 python3 get_album_art_missing.py   # exits 0 when coverage is complete
 ```
 
-## 5. Preview Trim Script
+## 5. Preview Scripts
 
 ```bash
-# Match songs against Music library and trim 20s previews
+# Match songs against local Music library and trim 20s previews (Pi only)
 python3 match_and_trim.py
 
+# Download 30s previews for any songs still missing one (Deezer -> iTunes)
+python3 get_previews_missing.py --dry-run   # report what would be found
+python3 get_previews_missing.py             # download + update songs.json
+
 # Check output directory
-ls songs/ | wc -l    # should match preview_url_local count in songs.json
+ls songs/ | wc -l    # unique preview files (fewer than song count when tracks repeat)
 ```
 
 ## 6. Suggested Tooling
